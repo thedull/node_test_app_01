@@ -10,4 +10,6 @@ Develop an app to get info and stats about Dogecoin
 
 ## In this branch
 
-Basic solution using `fs` and streams.
+* ~~Basic solution using `fs` and streams.~~
+
+* Code separation for sources, libraries, and final consumer using TypeScript. Added npm scripts.
