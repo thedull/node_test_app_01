@@ -1,0 +1,11 @@
+{
+  "name": "node_test_app_01",
+  "version": "0.0.1",
+  "description": "Demo app using Node.js for educational purposes",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["nodejs", "demo", "crypto", "dogecoin"],
+  "author": "Gabriel Trujillo <joaqt23@gmail.com>",
+  "license": "MIT"
+}
