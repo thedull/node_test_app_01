@@ -22,7 +22,9 @@ Develop an app to get info and stats about Dogecoin
 
 * ~~Created basic HTTP client with axios.~~
 
-* Added basic authentication middleware with JWT.
+* ~~Added basic authentication middleware with JWT.~~
+
+* Added helmet security and basic token invalidation logic through logout.
 
 ## To generate the definitions file
 

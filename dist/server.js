@@ -42,12 +42,15 @@ exports.__esModule = true;
 var express_1 = __importDefault(require("express"));
 var dogeaverage_1 = __importDefault(require("dogeaverage"));
 var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+var helmet_1 = __importDefault(require("helmet"));
 var config_json_1 = __importDefault(require("./config.json"));
 var users_1 = require("./users");
 var authJwt_1 = __importDefault(require("./authJwt"));
+var tokenMap_1 = __importDefault(require("./tokenMap"));
 var accessTokenSecret = config_json_1["default"].accessToken;
 var app = express_1["default"]();
 app.use(express_1["default"].json());
+app.use(helmet_1["default"]());
 app.get('/doge', authJwt_1["default"], function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, first, last, _b, firstId, lastId, avgId, data;
     return __generator(this, function (_c) {
@@ -70,16 +73,24 @@ app.post('/login', function (req, res) {
         return user.username === username &&
             user.password === password;
     });
+    // console.log({username, password, user});
     if (user) {
         var accessToken = jsonwebtoken_1["default"].sign({
             username: user.username,
             role: user.role
         }, accessTokenSecret);
+        tokenMap_1["default"].set(username, accessToken);
+        // console.log(tokenMap);
         res.json({ accessToken: accessToken });
     }
     else {
         res.sendStatus(401);
     }
+});
+app.post('/logout', authJwt_1["default"], function (req, res) {
+    var username = req.user.username;
+    tokenMap_1["default"]["delete"](username);
+    return res.sendStatus(200);
 });
 app.get('/admin', authJwt_1["default"], function (req, res) {
     var role = req.user.role;

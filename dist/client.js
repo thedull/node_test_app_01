@@ -43,22 +43,37 @@ var axios_1 = __importDefault(require("axios"));
 var url_1 = require("url");
 var first = process.argv[2] || '1';
 var last = process.argv[3] || '1';
+var token = process.argv[4] || '';
 var baseUri = "http://localhost:3001/doge";
 var axiosOptions = {
     url: baseUri,
     method: 'get',
-    params: new url_1.URLSearchParams({ first: first, last: last })
+    params: new url_1.URLSearchParams({ first: first, last: last }),
+    headers: { 'Authorization': "Bearer " + token }
 };
 (function () { return __awaiter(void 0, void 0, void 0, function () {
-    var response, _a, firstId, lastId, avgId;
+    var response, _a, firstId, lastId, avgId, exc_1;
     return __generator(this, function (_b) {
         switch (_b.label) {
-            case 0: return [4 /*yield*/, axios_1["default"](axiosOptions)];
+            case 0:
+                _b.trys.push([0, 2, , 3]);
+                return [4 /*yield*/, axios_1["default"](axiosOptions)];
             case 1:
                 response = _b.sent();
-                _a = response.data, firstId = _a.firstId, lastId = _a.lastId, avgId = _a.avgId;
-                console.log("Average between IDs " + firstId + "-" + lastId + ": " + avgId);
-                return [2 /*return*/];
+                // console.log(response);
+                if (response.data !== 'Forbidden') {
+                    _a = response.data, firstId = _a.firstId, lastId = _a.lastId, avgId = _a.avgId;
+                    console.log("Average between IDs " + firstId + "-" + lastId + ": " + avgId);
+                }
+                else {
+                    console.log('Forbidden');
+                }
+                return [3 /*break*/, 3];
+            case 2:
+                exc_1 = _b.sent();
+                console.log('Forbidden');
+                return [3 /*break*/, 3];
+            case 3: return [2 /*return*/];
         }
     });
 }); })();
