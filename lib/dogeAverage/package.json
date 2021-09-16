@@ -1,6 +1,6 @@
 {
   "name": "dogeaverage",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "",
   "main": "dogeAverage.js",
   "scripts": {
@@ -8,5 +8,6 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "types": "types/dogeAverage.d.ts"
 }

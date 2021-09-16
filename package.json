@@ -20,7 +20,7 @@
   "author": "Gabriel Trujillo <joaqt23@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "dogeaverage": "^0.0.1"
+    "dogeaverage": "^0.1.0"
   },
   "devDependencies": {
     "@types/node": "^16.9.1"

@@ -12,9 +12,27 @@ Develop an app to get info and stats about Dogecoin
 
 * ~~Basic solution using `fs` and streams.~~
 
-* ~~Code separation for sources, libraries, and final consumer using TypeScript. Added npm scripts.~~~
+* ~~Code separation for sources, libraries, and final consumer using TypeScript. Added npm scripts.~~
 
-*  Moved local dependency to own Node project and published on local Verdaccio.
+* ~~Move local dependency to own Node project and published on local Verdaccio.~~
+
+* Changes to package for local testing with `npm link` before publishing. 
+
+## To generate the definitions file
+
+```bash
+$ cd ./lib/dogeAverage
+$ tsc ./dogeAverage.js --declaration --emitDeclarationOnly --allowJs --outDir types 
+```
+
+Add an entry to the corresponding `package.json` file:
+```
+{ ...
+  "types": "types/dogeAverage.d.ts",
+... }
+```  
+
+And add JSDoc comments inside the typings file.
 
 ## Setting up local Verdaccio registry
 
