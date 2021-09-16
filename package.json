@@ -21,6 +21,7 @@
   "author": "Gabriel Trujillo <joaqt23@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.21.4",
     "dogeaverage": "^0.1.0",
     "express": "^4.17.1"
   },

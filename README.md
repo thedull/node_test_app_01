@@ -18,7 +18,9 @@ Develop an app to get info and stats about Dogecoin
 
 * ~~Changes to package for local testing with `npm link` before publishing.~~
 
-* Converted to WebAPI and added Nodemon support.
+* ~~Converted to WebAPI and added Nodemon support.~~
+
+* Created basic HTTP client with axios.
 
 ## To generate the definitions file
 
