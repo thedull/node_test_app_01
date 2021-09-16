@@ -41,8 +41,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 exports.__esModule = true;
 var express_1 = __importDefault(require("express"));
 var dogeaverage_1 = __importDefault(require("dogeaverage"));
+var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
+var config_json_1 = __importDefault(require("./config.json"));
+var users_1 = require("./users");
+var authJwt_1 = __importDefault(require("./authJwt"));
+var accessTokenSecret = config_json_1["default"].accessToken;
 var app = express_1["default"]();
-app.get('/doge', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+app.use(express_1["default"].json());
+app.get('/doge', authJwt_1["default"], function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, first, last, _b, firstId, lastId, avgId, data;
     return __generator(this, function (_c) {
         switch (_c.label) {
@@ -58,4 +64,28 @@ app.get('/doge', function (req, res) { return __awaiter(void 0, void 0, void 0, 
         }
     });
 }); });
+app.post('/login', function (req, res) {
+    var _a = req.body, username = _a.username, password = _a.password;
+    var user = users_1.users.find(function (user) {
+        return user.username === username &&
+            user.password === password;
+    });
+    if (user) {
+        var accessToken = jsonwebtoken_1["default"].sign({
+            username: user.username,
+            role: user.role
+        }, accessTokenSecret);
+        res.json({ accessToken: accessToken });
+    }
+    else {
+        res.sendStatus(401);
+    }
+});
+app.get('/admin', authJwt_1["default"], function (req, res) {
+    var role = req.user.role;
+    if (role !== 'admin') {
+        return res.sendStatus(403);
+    }
+    return res.send('Hello, admin');
+});
 app.listen(3001, function () { return console.log('Server running on http://localhost:3001'); });

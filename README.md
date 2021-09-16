@@ -20,7 +20,9 @@ Develop an app to get info and stats about Dogecoin
 
 * ~~Converted to WebAPI and added Nodemon support.~~
 
-* Created basic HTTP client with axios.
+* ~~Created basic HTTP client with axios.~~
+
+* Added basic authentication middleware with JWT.
 
 ## To generate the definitions file
 
