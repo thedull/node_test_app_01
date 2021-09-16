@@ -24,7 +24,9 @@ Develop an app to get info and stats about Dogecoin
 
 * ~~Added basic authentication middleware with JWT.~~
 
-* Added helmet security and basic token invalidation logic through logout.
+* ~~Added helmet security and basic token invalidation logic through logout.~~
+
+* Added basic websocket server and client using socket.io.
 
 ## To generate the definitions file
 
