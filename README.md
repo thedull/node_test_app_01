@@ -16,7 +16,9 @@ Develop an app to get info and stats about Dogecoin
 
 * ~~Move local dependency to own Node project and published on local Verdaccio.~~
 
-* Changes to package for local testing with `npm link` before publishing. 
+* ~~Changes to package for local testing with `npm link` before publishing.~~
+
+* Converted to WebAPI and added Nodemon support.
 
 ## To generate the definitions file
 

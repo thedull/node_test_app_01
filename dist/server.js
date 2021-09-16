@@ -39,18 +39,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 exports.__esModule = true;
-var dogeAverage_1 = __importDefault(require("dogeAverage"));
-var firstId = +process.argv[2] || 1;
-var lastId = +process.argv[3] || 1;
-(function () { return __awaiter(void 0, void 0, void 0, function () {
-    var avgId;
-    return __generator(this, function (_a) {
-        switch (_a.label) {
-            case 0: return [4 /*yield*/, dogeAverage_1["default"](firstId, lastId)];
+var express_1 = __importDefault(require("express"));
+var dogeaverage_1 = __importDefault(require("dogeaverage"));
+var app = express_1["default"]();
+app.get('/doge', function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var _a, first, last, _b, firstId, lastId, avgId, data;
+    return __generator(this, function (_c) {
+        switch (_c.label) {
+            case 0:
+                _a = req.query, first = _a.first, last = _a.last;
+                _b = [+first, +last], firstId = _b[0], lastId = _b[1];
+                return [4 /*yield*/, dogeaverage_1["default"](firstId, lastId)];
             case 1:
-                avgId = _a.sent();
-                console.log("Average between IDs " + firstId + "-" + lastId + ": " + avgId);
-                return [2 /*return*/];
+                avgId = _c.sent();
+                data = { firstId: firstId, lastId: lastId, avgId: avgId };
+                res.setHeader('Content-type', 'application/json');
+                return [2 /*return*/, res.status(200).send(data)];
         }
     });
-}); })();
+}); });
+app.listen(3001, function () { return console.log('Server running on http://localhost:3001'); });
