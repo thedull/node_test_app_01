@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-var dogeAverage = require("../lib/dogeAverage");
+var dogeAverage = require("dogeAverage");
 var firstId = +process.argv[2] || 1;
 var lastId = +process.argv[3] || 1;
 (function () { return __awaiter(void 0, void 0, void 0, function () {

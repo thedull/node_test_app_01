@@ -11,7 +11,18 @@
     "build": "tsc",
     "start": "npm run build && node ./dist/consume.js"
   },
-  "keywords": ["nodejs", "demo", "crypto", "dogecoin"],
+  "keywords": [
+    "nodejs",
+    "demo",
+    "crypto",
+    "dogecoin"
+  ],
   "author": "Gabriel Trujillo <joaqt23@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "dogeaverage": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.9.1"
+  }
 }

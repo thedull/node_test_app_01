@@ -1,4 +1,4 @@
-import * as dogeAverage from "../lib/dogeAverage";
+import * as dogeAverage from "dogeAverage";
 
 const firstId = +process.argv[2] || 1;
 const lastId = +process.argv[3] || 1;
