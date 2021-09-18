@@ -7,11 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <script src="/socket.io/socket.io.js"></script>
-    <script>
-      var socket = io();
-      socket.on('doge response', msg => console.log(msg));
-      socket.emit('doge request','{"first":10, "last":20}');
-    </script>  
+    <script src="./index.ts"></script>
 </body>
 </html>

@@ -26,7 +26,9 @@ Develop an app to get info and stats about Dogecoin
 
 * ~~Added helmet security and basic token invalidation logic through logout.~~
 
-* Added basic websocket server and client using socket.io.
+* ~~Added basic websocket server and client using socket.io.~~
+
+* Re-architected solution to use Parcel in the frontend. 
 
 ## To generate the definitions file
 
