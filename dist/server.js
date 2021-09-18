@@ -40,7 +40,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 exports.__esModule = true;
 var express_1 = __importDefault(require("express"));
-var dogeaverage_1 = __importDefault(require("dogeaverage"));
+var dogeaverage_1 = __importDefault(require("@thedull/dogeaverage"));
 var jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
 var helmet_1 = __importDefault(require("helmet"));
 var config_json_1 = __importDefault(require("./config.json"));
@@ -48,9 +48,9 @@ var users_1 = require("./users");
 var authJwt_1 = __importDefault(require("./authJwt"));
 var tokenMap_1 = __importDefault(require("./tokenMap"));
 var accessTokenSecret = config_json_1["default"].accessToken;
-var app = express_1["default"]();
+var app = (0, express_1["default"])();
 app.use(express_1["default"].json());
-app.use(helmet_1["default"]());
+app.use((0, helmet_1["default"])());
 app.get('/doge', authJwt_1["default"], function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, first, last, _b, firstId, lastId, avgId, data;
     return __generator(this, function (_c) {
@@ -58,7 +58,7 @@ app.get('/doge', authJwt_1["default"], function (req, res) { return __awaiter(vo
             case 0:
                 _a = req.query, first = _a.first, last = _a.last;
                 _b = [+first, +last], firstId = _b[0], lastId = _b[1];
-                return [4 /*yield*/, dogeaverage_1["default"](firstId, lastId)];
+                return [4 /*yield*/, (0, dogeaverage_1["default"])(firstId, lastId)];
             case 1:
                 avgId = _c.sent();
                 data = { firstId: firstId, lastId: lastId, avgId: avgId };

@@ -1,7 +1,7 @@
 import express from 'express';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
-import dogeAverage from 'dogeAverage';
+import dogeAverage from '@thedull/dogeaverage';
 
 const app = express();
 const server = createServer(app);

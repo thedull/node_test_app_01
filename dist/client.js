@@ -57,7 +57,7 @@ var axiosOptions = {
         switch (_b.label) {
             case 0:
                 _b.trys.push([0, 2, , 3]);
-                return [4 /*yield*/, axios_1["default"](axiosOptions)];
+                return [4 /*yield*/, (0, axios_1["default"])(axiosOptions)];
             case 1:
                 response = _b.sent();
                 // console.log(response);

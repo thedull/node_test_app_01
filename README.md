@@ -26,7 +26,32 @@ Develop an app to get info and stats about Dogecoin
 
 * ~~Added helmet security and basic token invalidation logic through logout.~~
 
-* Added basic websocket server and client using socket.io.
+* ~~Added basic websocket server and client using socket.io.~~
+
+* Added Docker support.
+
+## To build and run the Docker image
+
+IMPORTANT: Make sure that the name of the `dogeaverage` package published in Verdaccio corresponds to the one in the codebase. Otherwise, make them match.
+
+1. Generate a read only token for the Verdaccio registry. You'll need to enter your credentials.
+
+```bash
+$ npm token create --read-only
+```
+
+2. Get the token and use it to build the image as build argument.
+
+```bash
+# Inside the root directory of the project
+$ docker build --build-arg NPM_TOKEN="your token here" -t node_test_app_01 .
+```
+
+3. Create a container based on this image:
+
+```bash
+docker run -d --name node_test_app_01 -p 3000:3000 -p 3001:3001 node_test_app_01  
+```
 
 ## To generate the definitions file
 

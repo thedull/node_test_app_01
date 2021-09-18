@@ -1,5 +1,5 @@
 import express from 'express';
-import dogeAverage from 'dogeaverage';
+import dogeAverage from '@thedull/dogeaverage';
 import jwt from 'jsonwebtoken';
 import helmet from 'helmet';
 

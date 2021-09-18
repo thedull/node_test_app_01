@@ -42,9 +42,9 @@ exports.__esModule = true;
 var express_1 = __importDefault(require("express"));
 var http_1 = require("http");
 var socket_io_1 = require("socket.io");
-var dogeAverage_1 = __importDefault(require("dogeAverage"));
-var app = express_1["default"]();
-var server = http_1.createServer(app);
+var dogeaverage_1 = __importDefault(require("@thedull/dogeaverage"));
+var app = (0, express_1["default"])();
+var server = (0, http_1.createServer)(app);
 var io = new socket_io_1.Server(server);
 app.get('/', function (req, res) {
     res.sendFile(__dirname + '/index.html');
@@ -59,7 +59,7 @@ io.on('connection', function (socket) {
                 case 0:
                     data = JSON.parse(msg);
                     first = data.first, last = data.last;
-                    return [4 /*yield*/, dogeAverage_1["default"](first, last)];
+                    return [4 /*yield*/, (0, dogeaverage_1["default"])(first, last)];
                 case 1:
                     avgId = _a.sent();
                     response = { first: first, last: last, avgId: avgId };
